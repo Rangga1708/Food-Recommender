@@ -26,8 +26,9 @@ user_taste_vector = get_taste(st.session_state.name)
 st.write(np.array(user_taste_vector))
 
 data = pd.read_csv("https://raw.githubusercontent.com/Rangga1708/Food-Recommender/main/Food%20Taste.csv")
+st.write(type(data["taste"][0]))
 data["taste"] = data["taste_name"].map(get_taste)
-st.write(data["taste"][0])
+
 data["check"] = data["taste"].map(similarity)
 filtered_data = data[data["check"] > 0]
 filtered_data = filtered_data.sort_values(by = "check", ascending = False)
