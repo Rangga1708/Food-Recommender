@@ -25,7 +25,7 @@ def check(tastes):
     
     for taste in tastes:
         taste_vector = get_taste(taste)
-        result.append(similarity(taste_vector, user_taste_vector))
+        result.append(similarity(taste_vector))
     
     return result
 
