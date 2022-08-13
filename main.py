@@ -23,7 +23,7 @@ def similarity(x):
 st.header("Food Recommender")
 st.text_input("Food's tastes you want: ", key="name")
 user_taste_vector = get_taste(st.session_state.name)
-st.write(user_taste_vector)
+st.write(np.array(user_taste_vector))
 
 data = pd.read_csv("https://raw.githubusercontent.com/Rangga1708/Food-Recommender/main/Food%20Taste.csv")
 data["check"] = data["taste"].map(similarity)
