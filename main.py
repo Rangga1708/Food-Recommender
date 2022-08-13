@@ -20,17 +20,21 @@ def similarity(x):
     
     return np.dot(taste, user_taste)
 
+def check(tastes):
+    result = []
+    
+    for taste in tastes:
+        taste_vector = get_taste(taste)
+        result.append(similarity(taste_vector, user_taste_vector))
+    
+    return result
+
 st.header("Food Recommender")
 st.text_input("Food's tastes you want: ", key="name")
 user_taste_vector = get_taste(st.session_state.name)
-st.write(np.array(user_taste_vector))
 
 data = pd.read_csv("https://raw.githubusercontent.com/Rangga1708/Food-Recommender/main/Food%20Taste.csv")
-st.write(data["taste_name"][0])
-st.write("sweet" in data["taste_name"][0])
-data["taste"] = data["taste_name"].map(lambda x: get_taste(x))
-
-data["check"] = data["taste"].map(similarity)
+data["check"] = check(data["taste_name"])
 filtered_data = data[data["check"] > 0]
 filtered_data = filtered_data.sort_values(by = "check", ascending = False)
 filtered_data = filtered_data.reset_index(drop = True)
