@@ -34,7 +34,7 @@ st.text_input("Food's tastes you want: ", key="name")
 user_taste_vector = get_taste(st.session_state.name)
 
 data = pd.read_csv("https://raw.githubusercontent.com/Rangga1708/Food-Recommender/main/Food%20Taste.csv")
-data["check"] = check(data["taste_name"])
+data["check"] = check(data["taste_name"].to_list())
 filtered_data = data[data["check"] > 0]
 filtered_data = filtered_data.sort_values(by = "check", ascending = False)
 filtered_data = filtered_data.reset_index(drop = True)
