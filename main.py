@@ -28,7 +28,7 @@ st.write(np.array(user_taste_vector))
 data = pd.read_csv("https://raw.githubusercontent.com/Rangga1708/Food-Recommender/main/Food%20Taste.csv")
 st.write(data["taste_name"][0])
 st.write("sweet" in data["taste_name"][0])
-data["taste"] = data["taste_name"].map(get_taste)
+data["taste"] = data["taste_name"].map(lambda x: get_taste(x))
 
 data["check"] = data["taste"].map(similarity)
 filtered_data = data[data["check"] > 0]
