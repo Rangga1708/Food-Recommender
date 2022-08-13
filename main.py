@@ -24,6 +24,7 @@ def check(tastes):
     result = []
     
     for taste in tastes:
+        st.write(taste)
         taste_vector = get_taste(taste)
         result.append(similarity(taste_vector))
     
