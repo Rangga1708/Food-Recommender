@@ -37,8 +37,8 @@ filtered_data = filtered_data.reset_index(drop = True)
 #for i in range(len(filtered_data)):
 #    st.write(filtered_data["name"][i])
 
-variable = 1
-st.write(str(variable))
+st.session_state.variable = 1
+st.write(str(st.session_state.variable))
 if st.button("Next"):
-    variable += 1
-    st.write(str(variable))
+    st.session_state.variable += 1
+    st.write(str(st.session_state.variable))
