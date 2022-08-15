@@ -1,5 +1,4 @@
 import streamlit as st
-import SessionState
 import pandas as pd
 import numpy as np
 
@@ -42,7 +41,7 @@ filtered_data = filtered_data.reset_index(drop = True)
 N = 10
 
 # A variable to keep track of which product we are currently displaying
-current_page = SessionState.get(page_number = 0)
+current_page = st.session_state.get(page_number = 0)
 last_page = len(filtered_data) // N
 
 # Add a next button and a previous button
