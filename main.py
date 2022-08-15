@@ -37,34 +37,4 @@ filtered_data = filtered_data.reset_index(drop = True)
 #for i in range(len(filtered_data)):
 #    st.write(filtered_data["name"][i])
     
-# Number of entries per screen
-N = 10
-
-# A variable to keep track of which product we are currently displaying
-current_page = st.session_state.get(page_number = 0)
-last_page = len(filtered_data) // N
-
-# Add a next button and a previous button
-prev, _ ,next = st.beta_columns([1, 10, 1])
-
-if next.button("Next"):
-
-    if current_page.page_number + 1 > last_page:
-        current_page.page_number = 0
-    else:
-        current_page.page_number += 1
-
-if prev.button("Previous"):
-
-    if current_page.page_number - 1 < 0:
-        current_page.page_number = last_page
-    else:
-        current_page.page_number -= 1
-
-# Get start and end indices of the next page of the dataframe
-start_idx = current_page.page_number * N 
-end_idx = (1 + current_page.page_number) * N
-
-# Index into the sub dataframe
-sub_df = filtered_data.iloc[start_idx:end_idx]
-st.write(sub_df)
+st.button("Next", key = next)
