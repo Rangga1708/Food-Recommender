@@ -41,3 +41,4 @@ variable = 1
 st.write(str(variable))
 if st.button("Next"):
     variable += 1
+    st.write(str(variable))
