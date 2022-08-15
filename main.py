@@ -35,4 +35,5 @@ filtered_data = filtered_data.sort_values(by = "similarity", ascending = False)
 filtered_data = filtered_data.reset_index(drop = True)
 filtered_data = filtered_data.drop(columns = ["taste_vector", "similarity"])
 
-st.dataframe(filtered_data, 500, 500)
+st.dataframe(filtered_data)
+st.write("Note: expand taste column first before inputting anything")
