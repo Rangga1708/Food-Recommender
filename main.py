@@ -31,7 +31,8 @@ def similarity(x):
 #    return result
 
 st.header("Food Recommender")
-st.text_input("Food's tastes you want: ", key="name")
+st.write("Available food taste: sweet, salty, sour, bitter, spicy")
+st.text_input("Food's tastes you want: (ex: sweet and sour; salty, sour, and spicy)", key="name")
 user_taste_vector = get_taste(st.session_state.name)
 
 data = pd.read_csv("https://raw.githubusercontent.com/Rangga1708/Food-Recommender/main/Food%20Taste.csv")
