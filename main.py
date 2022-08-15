@@ -34,11 +34,4 @@ filtered_data = data[data["similarity"] > 0]
 filtered_data = filtered_data.sort_values(by = "similarity", ascending = False)
 filtered_data = filtered_data.reset_index(drop = True)
 
-#for i in range(len(filtered_data)):
-#    st.write(filtered_data["name"][i])
-
-st.session_state.variable = 1
-st.write(str(st.session_state.variable))
-if st.button("Next"):
-    st.session_state.variable += 1
-    st.write(str(st.session_state.variable))
+st.dataframe(filtered_data)
