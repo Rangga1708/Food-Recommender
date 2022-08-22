@@ -2,7 +2,7 @@
 
 Hi! This is a very simple food recommender based on food taste. But, since the raw dataset doesn't give the food taste, we have to classify the food taste first. There are several files in this repo.
 
-1. Food Recommender Based on Taste.pdf <br>
+1. Food Recommender Based on Taste.pptx <br>
 This is the documentation of what I did.
 2. Food Taste Classification.ipynb <br>
 This is a notebook to classify the food taste.
